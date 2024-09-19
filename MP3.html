@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zyphonix - Music Player</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background:  linear-gradient(120deg, rgb(110, 72, 156), skyblue,rgb(255, 16, 16));
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        
+
+        nav { 
+            background: #333;
+            width: 100%;
+            padding: 15px 0;
+        }
+
+        nav ul {
+            list-style-type: none;
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #1479d8;
+        }
+
+        section {
+            margin-top: 50px;
+            text-align: center;
+            color: #fff;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 3em;
+        }
+
+        p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 30px;
+            background-color: #333;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        button:hover {
+            background-color:  #1479d8;
+            transform: translateY(-5px);
+        }
+
+        .services {
+            margin-top: 50px;
+        }
+
+        .box-container {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 30px;
+        }
+
+        .music-player {
+            margin-top: 50px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 400px;
+        }
+
+        .music-player button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 30px;
+            cursor: pointer;
+            margin: 5px;
+            transition: background-color 0.3s ease;
+            border: none;
+        }
+
+        .music-player button:hover {
+            background-color: #0056b3;
+        }
+
+        .music-player audio {
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        .song-list {
+            margin: 20px 0;
+        }
+
+        .song-list button {
+            background-color:  #1479d8;
+            color: white;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 30px;
+            cursor: pointer;
+            border: none;
+        }
+
+        .song-list button:hover {
+            background-color: #54135a;
+        }
+
+        .current-song {
+            margin-top: 15px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        footer {
+            margin-top: 50px;
+            color: #fff;
+            text-align: center;
+        }
+
+        .playlist-container {
+            margin-top: 20px;
+            background-color: #f7f7f7;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .playlist {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0;
+        }
+
+        .playlist li {
+            background-color: #333;
+            color: white;
+            margin: 5px;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .playlist li:hover {
+            background-color: #68135c;
+        }
+
+        .add-music-form {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .add-music-form input[type="text"] {
+            padding: 10px;
+            width: 70%;
+            margin-right: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .add-music-form button {
+            padding: 10px 20px;
+            background-color:  #1479d8;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .add-music-form button:hover {
+            background-color: #811078;
+        }
+
+        /* Download Section */
+        .download-section {
+            margin-top: 30px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .download-list {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0;
+        }
+
+        .download-list li {
+            margin: 10px 0;
+        }
+
+        .download-list a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .download-list a:hover {
+            text-decoration: underline;
+        }
+
+        /* Subscription Section */
+        .subscription-section {
+            margin-top: 30px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+            text-align: right;
+        }
+
+        #subscriptionForm {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #subscriptionForm label {
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        #subscriptionForm select, #subscriptionForm input {
+            padding: 10px;
+            margin: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: 80%;
+        }
+
+        #subscriptionForm button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #subscriptionForm button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Advertisement Section */
+        .advertisement {
+            margin-top: 30px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .advertisement img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#" id="Home-btn">Home</a></li>
+            <li><a href="#">Music Player</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+ <!-- Music Player Section -->
+ <section class="music-player">
+    <h2 style="color: gray;">Music Player</h2>
+    <p style="color: gray">Choose a song and enjoy the music!</p>
+
+    <div class="song-list">
+        <button data-song="Tak Dianggap.mp3">Tak Dianggap</button>
+        <button data-song="MATI MATIAN .mp3">Mati-Matian</button>
+        <button data-song="Tak Berharap Lagi.mp3">Tak Berharap Lagi</button>
+        <button data-song="It's ok I'm ok.mp3">It's ok I'm ok</button>
+        <button data-song="SAMPAI MENUTUP MATA.mp3">Sampai Menutup Mata</button>
+        <button data-song="In My Dreams.mp3">In My Dreams</button>
+        <button data-song="music/song7.mp3">Pointy Heights</button>
+        <button data-song="music/song8.mp3">Bad Dreams</button>
+        <button data-song="Duka.mp3">DUKA</button>
+    </div>
+
+    <audio id="audioPlayer" controls>
+        <source src="music/song1.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    <p class="current-song">Now Playing:........</p>
+
+    <!-- Playlist Section -->
+    <div class="playlist-container">
+        <h3 style="color: gray;">Playlist</h3>
+        <ul class="playlist" id="playlist">
+            <li data-song="Tak Dianggap.mp3">Tak Dianggap</li>
+            <li data-song="MATI MATIAN.mp3">Mati-Matian</li>
+            <li data-song="Tak Berharap Lagi.mp3">Tak Berharap Lagi</li>
+            <li data-song="Duka">DUKA</li>
+            <br>
+            <li><a class="Tambahkan musik">
+               Tambahkan Playlist
+            </a></li>
+        </ul>
+    </div>
+
+    <!-- Add Music Section -->
+    <div class="add-music-form">
+        <h2 class="text-end">Add Your Music</h2>
+        <input type="text" id="songName" placeholder="Enter song name">
+        <input type="text" id="songUrl" placeholder="Enter song URL">
+        <button id="addSongBtn">Tambahkan Musik</button>
+    </div>
+
+    <!-- Download Section -->
+    <div class="download-section">
+        <h3>Download Songs</h3>
+        <ul class="download-list">
+            <li><a href="music/song1.mp3" download>Download Tak Dianggap</a></li>
+            <li><a href="music/song2.mp3" download>Download Mati-Matian</a></li>
+            <li><a href="music/song3.mp3" download>Download Tak Berharap Lagi</a></li>
+            <!-- Add more downloadable items as needed -->
+        </ul>
+    </div>
+
+    <!-- Subscription Section -->
+    <div class="subscription-section">
+        <h3 class="text-end">Subscription Plans</h3>
+        <form id="subscriptionForm">
+            <label for="subscription">Choose a plan:</label>
+            <select id="subscription" name="subscription">
+                <option value="10000">Harian - Rp 10,000</option>
+                <option value="25000">Ahadan - Rp 25,000</option>
+                <option value="50000">Tahunan - Rp 50,000</option>
+                <option value="100000">Perabad - Rp 100,000</option>
+                <option value="500000">Unlimitd- Rp 500,000</option>
+            </select>
+            <br><br>
+            <label for="paymentInfo">Enter pembelian Information:</label>
+            <input type="text" id="paymentInfo" placeholder="Enter payment details" required>
+            <br><br>
+            <button type="submit">Bayar Brooo</button>
+        </form>
+    </div>
+</section>
+
+<!-- Advertisement Section -->
+<section class="advertisement">
+    <h3>Sponsored Ad</h3>
+    <a href="https://example.com" target="_blank">
+        <img src="https://via.placeholder.com/728x90.png?text=Advertisement" alt="Advertisement">
+    </a>
+</section>
+
+<!-- Footer -->
+<footer>
+    <p>&copy;2024 Musik Kusus Gen"Z"</p>
+</footer>
+
+<script>
+    
+    // Music Player JavaScript
+    document.querySelectorAll('.song-list button').forEach(button => {
+        button.addEventListener('click', () => {
+            const songUrl = button.getAttribute('data-song');
+            const audioPlayer = document.getElementById('audioPlayer');
+            audioPlayer.src = songUrl;
+            audioPlayer.play();
+            document.querySelector('.current-song').textContent = `Now Playing: ${button.textContent}`;
+        });
+    });
+
+    document.querySelectorAll('.playlist li').forEach(item => {
+        item.addEventListener('click', () => {
+            const songUrl = item.getAttribute('data-song');
+            const audioPlayer = document.getElementById('audioPlayer');
+            audioPlayer.src = songUrl;
+            audioPlayer.play();
+            document.querySelector('.current-song').textContent = `Now Playing: ${item.textContent}`;
+        });
+    });
+
+    document.getElementById('addSongBtn').addEventListener('click', () => {
+        const songName = document.getElementById('songName').value;
+        const songUrl = document.getElementById('songUrl').value;
+
+        if (songName && songUrl) {
+            const playlist = document.getElementById('playlist');
+            const newSong = document.createElement('li');
+            newSong.textContent = songName;
+            newSong.setAttribute('data-song', songUrl);
+            playlist.appendChild(newSong);
+
+            // Clear input fields
+            document.getElementById('songName').value = '';
+            document.getElementById('songUrl').value = '';
+        } else {
+            alert('Please enter both song name and URL.');
+        }
+    });
+
+    // Subscription Form JavaScript
+    document.getElementById('subscriptionForm').addEventListener('submit', (event) => {
+        event.preventDefault();
+
+        const subscriptionValue = document.getElementById('subscription').value;
+        const paymentInfo = document.getElementById('paymentInfo').value;
+
+        if (paymentInfo) {
+            alert(`Subscription confirmed! Amount to be paid: Rp ${subscriptionValue}`);
+            // You can add code here to handle actual payment processing
+        } else {
+            alert('Please enter payment information.');
+        }
+    });
+
+    // PaySpot Wallet JavaScript
+    let walletBalance = 0;
+
+    document.getElementById('topUpBtn').addEventListener('click', () => {
+        const topUpAmount = parseInt(document.getElementById('topUpAmount').value);
+        if (topUpAmount > 0) {
+            walletBalance += topUpAmount;
+            document.getElementById('walletBalance').value = `Your Balance: Rp ${walletBalance}`;
+            document.getElementById('topUpAmount').value = '';
+
+            // Record the transaction
+            const transactionHistory = document.getElementById('transactionHistory');
+            const newTransaction = document.createElement('li');
+            newTransaction.textContent = `Top Up: Rp ${topUpAmount}`;
+            transactionHistory.appendChild(newTransaction);
+        } else {
+            alert('Please enter a valid amount.');
+        }
+    });
+
+    // Shopping JavaScript
+    document.querySelectorAll('.shopping-list button').forEach(button => {
+        button.addEventListener('click', () => {
+            const product = button.getAttribute('data-product');
+            const price = button.getAttribute('data-price');
+            
+            const cartItems = document.getElementById('cartItems');
+            const newItem = document.createElement('li');
+            newItem.textContent = `${product} - Rp ${price}`;
+            
+            // Add Remove button to cart item
+            const removeBtn = document.createElement('button');
+            removeBtn.textContent = 'Remove';
+            removeBtn.addEventListener('click', () => {
+                cartItems.removeChild(newItem);
+            });
+            newItem.appendChild(removeBtn);
+            
+            cartItems.appendChild(newItem);
+        });
+    });
+
+    document.getElementById('checkoutBtn').addEventListener('click', () => {
+        alert('Checkout functionality is not implemented yet.');
+    });
+
+    </script>
+    <script>
+        document.getElementById('Home-btn').addEventListener('click', function() {
+            window.location.href = 'HOM.html';
+        });
+
+</script>
+</body>
+</html>

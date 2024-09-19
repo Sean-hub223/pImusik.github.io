@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zyphonix - Pay</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background:  linear-gradient(120deg, rgb(110, 72, 156), skyblue,rgb(255, 16, 16));
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        nav {
+            background: #333;
+            width: 100%;
+            padding: 15px 0;
+        }
+
+        nav ul {
+            list-style-type: none;
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #0014c7;
+        }
+
+        section {
+            margin-top: 50px;
+            text-align: center;
+            color: #fff;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 3em;
+        }
+
+        p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 30px;
+            background-color: #333;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0307d8;
+            transform: translateY(-5px);
+        }
+
+        .services {
+            margin-top: 50px;
+        }
+
+        .box-container {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 30px;
+        }
+
+        .box-1, .box-2, .box-3 {
+            background: #fff;
+            padding: 20px;
+            width: 250px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+            color: #333;
+            transition: transform 0.3s ease;
+        }
+
+        .box-1:hover, .box-2:hover, .box-3:hover {
+            transform: translateY(-10px);
+        }
+
+        .box-1 h2, .box-2 h2, .box-3 h2 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .music-player {
+            margin-top: 50px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 400px;
+        }
+
+        .music-player button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 30px;
+            cursor: pointer;
+            margin: 5px;
+            transition: background-color 0.3s ease;
+            border: none;
+        }
+
+        .music-player button:hover {
+            background-color: #0056b3;
+        }
+
+        .music-player audio {
+            margin-top: 20px;
+            width: 100%;
+        }
+        /* Existing styles... */
+        /* Include previous CSS here */
+
+        /* PaySpot Section */
+        .payspot-section {
+            margin-top: 30px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .payspot-section h3 {
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .payspot-section input[type="text"], .payspot-section input[type="number"] {
+            padding: 10px;
+            margin: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: 80%;
+        }
+
+        .payspot-section button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .payspot-section button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+     </style>
+    </head>
+    <body>
+        <!-- Navigation -->
+        <nav>
+            <ul>
+                <li><a href="#" id="Home-btn">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+         <!-- Main Section -->
+    <section>
+        <h1>Pay Spotanjay</h1>
+        <p>Masukan Uang dan anda Akan senag.</p>
+        <button type="button" class="main music" id="Main-musik-btn">Go Music</button>
+        <button>support</button>
+    </section> 
+
+     <!-- PaySpot Section -->
+     <section class="payspot-section">
+        <h3>PaySpot Digital Wallet</h3>
+        <p style="color: gray">Digital Walet PaySpot Indonesia </p>
+        <input type="text" id="walletBalance" placeholder="Your Balance: Rp 0" disabled>
+        <br>
+        <input type="number" id="topUpAmount" placeholder="Top Up Amount">
+        <button id="topUpBtn">Top Up</button>
+        <h3> History Transaksi</h3>
+        <ul id="transactionHistory">
+            <!-- Transaction history items will be added here -->
+        </ul>
+    </section>
+    <footer>
+        <p color="rgb">&copy;2024 Musik Kusus Gen"Z"</p>
+    </footer>
+   <script>
+    //pindah file
+    document.getElementById('MP3-btn').addEventListener('click', function() {
+            widow.location.href = 'MP3.html';
+        });
+
+        // PaySpot Wallet JavaScript
+        let walletBalance = 0;
+
+        document.getElementById('topUpBtn').addEventListener('click', () => {
+            const topUpAmount = parseInt(document.getElementById('topUpAmount').value);
+            if (topUpAmount > 0) {
+                walletBalance += topUpAmount;
+                document.getElementById('walletBalance').value = `Your Balance: Rp ${walletBalance}`;
+                document.getElementById('topUpAmount').value = '';
+
+                // Record the transaction
+                const transactionHistory = document.getElementById('transactionHistory');
+                const newTransaction = document.createElement('li');
+                newTransaction.textContent = `Top Up: Rp ${topUpAmount}`;
+                transactionHistory.appendChild(newTransaction);
+            } else {
+                alert('Please enter a valid amount.');
+            }
+        });
+</script>
+<script>
+        document.getElementById('Home-btn').addEventListener('click', function() {
+            window.location.href = 'HOM.html';
+        });
+
+        document.getElementById('Main-musik-btn').addEventListener('click', function() {
+            window.location.href = 'MP3.html';
+        });
+   </script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+#image-container {
+    text-align: center;
+    margin-top: 20px;
+}
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+body {
+    background: url('musik.jpg') no-repeat center center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+.wrapper {
+    background: rgba(0, 0, 0, 0.7); /* Dark background to ensure content visibility */
+    border-radius: 15px;
+    padding: 40px;
+    text-align: center;
+    color: #fff;
+    max-width: 400px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    position: relative;
+}
+
+.wrapper h2 {
+    font-size: 30px;
+    color: #5ce9c6;
+    margin-bottom: 30px;
+}
+
+.input-field {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.input-field input {
+    width: 100%;
+    padding: 15px;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    color: #fff;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.input-field input:focus {
+    border-color: #5ce9c6;
+    outline: none;
+}
+
+.input-field i {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    color: rgba(255, 255, 255, 0.8);
+}
+
+input::placeholder {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.forgot, .sign-up {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 14px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.forgot:hover, .sign-up:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.login {
+    background: #5ce9c6;
+    border: none;
+    padding: 15px;
+    border-radius: 25px;
+    color: #000;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+    transition: 0.3s;
+}
+
+.login:hover {
+    background: #4ad1af;
+}
+
+p {
+    margin-top: 20px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+p a {
+    color: #5ce9c6;
+    font-weight: 600;
+}
+
+.sadboy-img {
+    width: 120px; /* Adjust as needed */
+    height: 120px; /* Adjust as needed */
+    border-radius: 50%;
+    margin-bottom: 20px;
+    display: inline-block;
+    position: relative;
+}
+
+.sadboy-img img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}

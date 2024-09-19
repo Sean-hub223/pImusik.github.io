@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zyphonix - Membership</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background:  linear-gradient(120deg, rgb(110, 72, 156), skyblue,rgb(255, 16, 16));
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        nav {
+            background: #333;
+            width: 100%;
+            padding: 15px 0;
+        }
+
+        nav ul {
+            list-style-type: none;
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color:  #1479d8;
+        }
+
+        section {
+            margin-top: 50px;
+            text-align: center;
+            color: #fff;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 3em;
+        }
+
+        p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 30px;
+            background-color: #333;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #84fab0;
+            transform: translateY(-5px);
+        }
+
+        .services {
+            margin-top: 50px;
+        }
+        /* Shopping Section */
+        .shopping-section {
+            margin-top: 30px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .shopping-section h3 {
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .shopping-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        .shopping-list li {
+            background-color: #f7f7f7;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .shopping-list button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .shopping-list button:hover {
+            background-color: #218838;
+        }
+
+        .cart-section {
+            margin-top: 20px;
+            background-color: #f7f7f7;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .cart-items {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .cart-items li {
+            background-color: #fff;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .cart-items button {
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .cart-items button:hover {
+            background-color: #c82333;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#" id="Home-btn">Home</a></li>
+            <li><a href="#" >About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+     <!-- Membership Section -->
+     <section class="shopping-section">
+        <h3>Membership </h3>
+      <p style="color: gray">Mingguan dan Bulanan </p>
+        <ul class="shopping-list" id="shoppingList">
+            <li>
+                <span style="color: rgb(94, 89, 89)">Membership Biasa- Rp 15,000</span>
+                <button data-price="15000" data-product="Membership Biasa">Bayar</button>
+            </li>
+            <li>
+                <span style="color: rgb(248, 190, 0)">Membership Plus- Rp 20,000</span>
+                <button data-price="20000" data-product="Membership Plus">Bayar</button>
+            </li>
+            <!-- Add more products as needed -->
+        </ul>
+        <div class="cart-section">
+            <h3>Keranjang kamu</h3>
+            <ul style="color: gray" class="cart-items" id="cartItems">
+                <!-- Cart items will be added here -->
+            </ul>
+            <button id="checkoutBtn">Checkout</button>
+        </div>
+    </section>
+
+     <!-- Footer -->
+     <footer>
+        <p>&copy;2024 Musik Kusus Gen"Z"</p>
+        </footer>
+    <script>
+        // Shopping JavaScript
+        document.querySelectorAll('.shopping-list button').forEach(button => {
+            button.addEventListener('click', () => {
+                const product = button.getAttribute('data-product');
+                const price = button.getAttribute('data-price');
+                
+                const cartItems = document.getElementById('cartItems');
+                const newItem = document.createElement('li');
+                newItem.textContent = `${product} - Rp ${price}`;
+                
+                // Add Remove button to cart item
+                const removeBtn = document.createElement('button');
+                removeBtn.textContent = 'Remove';
+                removeBtn.addEventListener('click', () => {
+                    cartItems.removeChild(newItem);
+                });
+                newItem.appendChild(removeBtn);
+                
+                cartItems.appendChild(newItem);
+            });
+        });
+
+        document.getElementById('checkoutBtn').addEventListener('click', () => {
+            alert('Checkout functionality is not implemented yet.');
+        });
+ </script>
+ <script>
+        document.getElementById('Home-btn').addEventListener('click', function() {
+            window.location.href = 'HOM.html';
+        });
+        
+   </script>
+</body>
+</html>
