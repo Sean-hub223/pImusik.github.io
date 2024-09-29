@@ -102,7 +102,7 @@
         }
 
         .login:hover {
-            background: #4ad1af;
+            background: #7cc3df;
         }
 
         p {
@@ -131,13 +131,23 @@
             object-fit: cover;
         }
 
+        .Logo1-webp img {
+    width: 120px; /* Ukuran logo */
+    height: 120px; /* Ukuran logo */
+    border-radius: 50%; /* Membuat logo berbentuk lingkaran */
+    object-fit: cover; /* Menjaga rasio gambar agar tidak terdistorsi */
+    margin-bottom: 20px;
+}
+
     </style>
 </head>
 <body>
 
     <div class="wrapper">
-        <div class="Zyphonix">
-            <img src="images/Logo2.jpg" alt="Zyphonix">
+        <picture>
+        <div class="Logo1-webp">
+            <img src="img/Logo1.webp" alt="Logo1">
+        </picture>
     </div>
         <h2>Login Zyphonix </h2>
         <form action="#" id="login-form">
