@@ -7,6 +7,15 @@
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel='stylesheet'>
     <title>Sign Up Zyphonix</title>
     <style>
+         #image-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
         body {
             background:  linear-gradient(120deg, rgb(110, 72, 156), skyblue,rgb(255, 16, 16));
             display: flex;
@@ -81,7 +90,7 @@
         }
 
         .login, .sign-up-btn {
-            background: #5ce9c6;
+            background: #6788bb;
             border: none;
             padding: 15px;
             border-radius: 25px;
@@ -107,8 +116,8 @@
         }
 
         .sadboy-img {
-            width: 120px;
-            height: 120px;
+            width: 120px; /* Adjust as needed */
+            height: 120px; /* Adjust as needed */
             border-radius: 50%;
             margin-bottom: 20px;
             display: inline-block;
@@ -121,17 +130,25 @@
             border-radius: 50%;
             object-fit: cover;
         }
+
+        .Logo1-webp img {
+    width: 120px; /* Ukuran logo */
+    height: 120px; /* Ukuran logo */
+    border-radius: 50%; /* Membuat logo berbentuk lingkaran */
+    object-fit: cover; /* Menjaga rasio gambar agar tidak terdistorsi */
+    margin-bottom: 20px;
+}
+
     </style>
 </head>
 <body>
 
     <div class="wrapper">
+        <picture>
         <div class="Logo1-webp">
-            <picture>
-                <div class="Logo1-webp">
-                    <img src="images/Logo2.jpg" alt="Zyphonix">
-                </picture>
-                </div>
+            <img src="img/Logo1.webp" alt="Logo1">
+        </picture>
+    </div>
         <h2>Sign Up Zyphonix</h2>
         <form action="#">
             <div class="input-field">
